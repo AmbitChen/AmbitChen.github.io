@@ -1,4 +1,3 @@
-/*样式二*/ /* 控制下雪 */
 function snowFall(snow) { /* 可配置属性 */
   snow = snow || {};
   this.maxFlake = snow.maxFlake || 200; /* 最多片数 */
@@ -60,8 +59,7 @@ flakeMove.prototype.reset = function (width, height) {
   this.speed = Math.random() * 1 + this.fallSpeed;
   this.velY = this.speed;
   this.velX = 0;
-};
-// 渲染雪花-随机形状（此处可修改雪花颜色！！！）
+}; // 渲染雪花-随机形状（此处可修改雪花颜色！！！）
 flakeMove.prototype.render = function (ctx) {
   var snowFlake = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.size);
   snowFlake.addColorStop(0, "rgba(255, 255, 255, 0.9)"); /* 此处是雪花颜色，默认是白色 */
@@ -74,6 +72,7 @@ flakeMove.prototype.render = function (ctx) {
   ctx.fill();
   ctx.restore();
 };
+
 /* 创建雪花-定义形状 */
 function createFlakes() {
   var maxFlake = this.maxFlake, flakes = this.flakes = [], canvas = this.canvas;
@@ -81,6 +80,7 @@ function createFlakes() {
     flakes.push(new flakeMove(canvas.width, canvas.height, this.flakeSize, this.fallSpeed))
   }
 }
+
 /* 画雪 */
 function drawSnow() {
   var maxFlake = this.maxFlake, flakes = this.flakes;
@@ -96,6 +96,7 @@ function drawSnow() {
     drawSnow.apply(that);
   });
 }
+
 /* 调用及控制方法 */
 var snow = new snowFall({maxFlake: 60});
 snow.start();
