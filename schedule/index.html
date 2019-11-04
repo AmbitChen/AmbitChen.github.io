@@ -542,14 +542,6 @@
         const todayHour = today.getHours();
         const todayMinute = today.getMinutes();
         const todaySecond = today.getSeconds();
-        /* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
-           year - 作为date对象的年份，为4位年份值
-           month - 0-11之间的整数，做为date对象的月份
-           day - 1-31之间的整数，做为date对象的天数
-           hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
-           minutes - 0-59之间的整数，做为date对象的分钟数
-           seconds - 0-59之间的整数，做为date对象的秒数
-           microseconds - 0-999之间的整数，做为date对象的毫秒数 */
         const t1 = Date.UTC(2019, 11, 1, 0, 0, 0);
         const t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
         const diff = t2 - t1;
@@ -664,6 +656,11 @@
 </div>
 
 
+
+    <!--背景动画-->
+  <script color='0,0,0' opacity='0.5'
+          zIndex='-1' count='99'
+          src="//cdn.bootcss.com/canvas-nest.js/2.0.4/canvas-nest.js"></script>
   <script src="/lib/anime.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
