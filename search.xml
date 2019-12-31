@@ -1,32 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<search> 
-  
-  
-    
-    <entry>
-      <title>Hello Hexo</title>
-      <link href="/2019/10-31-hello-world/"/>
-      <url>/2019/10-31-hello-world/</url>
-      
-        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
-      
-      
+<search>
+  <entry>
+    <title>ShadowsocksR 配置及使用</title>
+    <url>/2019/12-14-ShadowsocksR-Config-Use/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><font color=red>【警告】</font> 本篇说明仅供交流与学习使用，请勿作出任何违反国家法律的行为！</p>
+<h3 id="一、安装-ShadowsocksR"><a href="#一、安装-ShadowsocksR" class="headerlink" title="一、安装 ShadowsocksR"></a>一、安装 ShadowsocksR</h3><h4 id="1-客户端下载"><a href="#1-客户端下载" class="headerlink" title="1. 客户端下载"></a>1. 客户端下载</h4><ul>
+<li><a href="https://github.com/shadowsocksrr/shadowsocksr-csharp/releases" target="_blank" rel="noopener">Windows</a></li>
+<li><a href="https://github.com/shadowsocks/shadowsocks-iOS/wiki/Shadowsocks-for-OSX-Help" target="_blank" rel="noopener">macOS</a></li>
+<li><a href="https://github.com/librehat/shadowsocks-qt5" target="_blank" rel="noopener">Linux</a></li>
+<li><a href="https://github.com/shadowsocks/shadowsocks-android" target="_blank" rel="noopener">Android</a></li>
+<li><a href="https://github.com/shadowsocks/shadowsocks-iOS/wiki/Help" target="_blank" rel="noopener">iOS</a></li>
+</ul>
+<h4 id="2-配置服务端-ShadowsocksR"><a href="#2-配置服务端-ShadowsocksR" class="headerlink" title="2. 配置服务端 ShadowsocksR"></a>2. 配置服务端 ShadowsocksR</h4><ol>
+<li><p>首先你要有一个VPS ，复制全部执行即可</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">wget --no-check-certificate https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocksR.sh</span><br><span class="line">chmod +x shadowsocksR.sh </span><br><span class="line">./shadowsocksR.sh 2&gt;&amp;1 | tee shadowsocksR.log</span><br></pre></td></tr></table></figure>
+
+<p>如果提示 wget: command not found，那么需要先安装wget执行以下命令</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">yum install wget</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="2">
+<li><p>接下来设置密码端口、加密方式、协议、混淆（obfs）就可以了。</p>
+</li>
+<li><p>安装完成后，会有脚本提示如下：</p>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line">Congratulations, ShadowsocksR server install completed!</span><br><span class="line">Your Server IP        :your_server_ip</span><br><span class="line">Your Server Port      :your_server_port</span><br><span class="line">Your Password         :your_password</span><br><span class="line">Your Protocol         :your_protocol</span><br><span class="line">Your obfs             :your_obfs</span><br><span class="line">Your Encryption Method:your_encryption_method</span><br><span class="line"></span><br><span class="line">Welcome to visit:https://shadowsocks.be/<span class="number">9</span>.html</span><br><span class="line">Enjoy it!</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将你的配置信息输入到客户端就可以使用了</p>
+</li>
+</ol>
+<h3 id="二、管理你的-ShadowsocksR"><a href="#二、管理你的-ShadowsocksR" class="headerlink" title="二、管理你的 ShadowsocksR"></a>二、管理你的 ShadowsocksR</h3><h4 id="1-卸载"><a href="#1-卸载" class="headerlink" title="1. 卸载"></a>1. 卸载</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">./shadowsocksR.sh uninstall</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-查看状态"><a href="#2-查看状态" class="headerlink" title="2. 查看状态"></a>2. 查看状态</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">/etc/init.d/shadowsocks status</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-启动"><a href="#3-启动" class="headerlink" title="3. 启动"></a>3. 启动</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">/etc/init.d/shadowsocks start</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-停止"><a href="#4-停止" class="headerlink" title="4. 停止"></a>4. 停止</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">/etc/init.d/shadowsocks stop</span><br></pre></td></tr></table></figure>
+
+<h4 id="5-重启"><a href="#5-重启" class="headerlink" title="5. 重启"></a>5. 重启</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">/etc/init.d/shadowsocks restart</span><br></pre></td></tr></table></figure>
+
+<h4 id="6-文件目录"><a href="#6-文件目录" class="headerlink" title="6. 文件目录"></a>6. 文件目录</h4><ol>
+<li>配置文件路径：<code>/etc/shadowsocks.json</code></li>
+<li>日志文件路径：<code>/var/log/shadowsocks.log</code></li>
+<li>代码安装目录：<code>/usr/local/shadowsocks</code></li>
+</ol>
+<h4 id="7-配置多用户"><a href="#7-配置多用户" class="headerlink" title="7. 配置多用户"></a>7. 配置多用户</h4><figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"server"</span>:<span class="string">"0.0.0.0"</span>,</span><br><span class="line">    <span class="attr">"server_ipv6"</span>:<span class="string">"[::]"</span>,</span><br><span class="line">    <span class="attr">"port_password"</span>:&#123;</span><br><span class="line">     <span class="attr">"8000"</span>:<span class="string">"password"</span>,</span><br><span class="line">     <span class="attr">"8001"</span>:<span class="string">"password"</span>,</span><br><span class="line">     <span class="attr">"8002"</span>:<span class="string">"password"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">"local_address"</span>:<span class="string">"127.0.0.1"</span>,</span><br><span class="line">    <span class="attr">"local_port"</span>:<span class="number">1080</span>,</span><br><span class="line">    <span class="attr">"timeout"</span>:<span class="number">120</span>,</span><br><span class="line">    <span class="attr">"method"</span>:<span class="string">"aes-256-cfb"</span>,</span><br><span class="line">    <span class="attr">"protocol"</span>:<span class="string">"auth_aes128_sha1"</span>,</span><br><span class="line">    <span class="attr">"protocol_param"</span>:<span class="string">""</span>,</span><br><span class="line">    <span class="attr">"obfs"</span>:<span class="string">"tls1.2_ticket_auth"</span>,</span><br><span class="line">    <span class="attr">"obfs_param"</span>:<span class="string">""</span>,</span><br><span class="line">    <span class="attr">"redirect"</span>:<span class="string">""</span>,</span><br><span class="line">    <span class="attr">"dns_ipv6"</span>:<span class="literal">false</span>,</span><br><span class="line">    <span class="attr">"fast_open"</span>:<span class="literal">false</span>,</span><br><span class="line">    <span class="attr">"workers"</span>:<span class="number">1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p> 将 <code>&quot;server_port&quot;</code>与<code>&quot;password&quot;</code> 删除，新增 <code>&quot;port_password&quot;</code> 以 Key-Value 形式配置多个端口及密码。 </p>
+<h3 id="三、VPS测速"><a href="#三、VPS测速" class="headerlink" title="三、VPS测速"></a>三、VPS测速</h3><p><code>wget -qO- bench.sh | bash</code></p>
+]]></content>
       <categories>
-          
-          <category> Web </category>
-          
+        <category>NetWork</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> Hexo </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-  
-  
+      <tags>
+        <tag>ShadowsocksR</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello Hexo</title>
+    <url>/2019/10-31-hello-world/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+]]></content>
+      <categories>
+        <category>Web</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
 </search>
