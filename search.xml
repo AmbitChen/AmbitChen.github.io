@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Git设置代理</title>
+    <url>/2020/01-14-Git-Proxy/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h4 id="设置本地代理"><a href="#设置本地代理" class="headerlink" title="设置本地代理"></a>设置本地代理</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 设置HTTP代理</span></span><br><span class="line">git config --global http.proxy http://127.0.0.1:1080</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 设置HTTPS代理</span></span><br><span class="line">git config --global https.proxy http://127.0.0.1:1080</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 重置HTTP代理</span></span><br><span class="line">git config --global --unset http.proxy</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 重置HTTPS代理</span></span><br><span class="line">git config --global --unset https.proxy</span><br></pre></td></tr></table></figure>
+
+<p><strong>如果你使用的是ss,则需要将协议换为socks5</strong></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git config --global http.proxy 'socks5://127.0.0.1:1080'</span><br><span class="line"></span><br><span class="line">git config --global https.proxy 'socks5://127.0.0.1:1080'</span><br></pre></td></tr></table></figure>
+<p><strong>针对特定网址设置代理</strong></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 针对特定网址，例如:Github</span></span><br><span class="line">git config --global http.https://github.com.proxy socks5://127.0.0.1:1080</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 取消代理</span></span><br><span class="line">git config --global --unset http.https://github.com.proxy</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Git</category>
+      </categories>
+      <tags>
+        <tag>Proxy</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>ShadowsocksR 配置及使用</title>
     <url>/2019/12-14-ShadowsocksR-Config-Use/</url>
     <content><![CDATA[<div id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
